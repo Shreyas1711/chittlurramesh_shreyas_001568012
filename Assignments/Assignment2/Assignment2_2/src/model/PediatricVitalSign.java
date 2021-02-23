@@ -5,17 +5,35 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author shreyascr
  */
-public class VitalSign {
+public class PediatricVitalSign {
+    
+    private Date time;
 
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+   
     private int respRate;
     private int heartRate;
     private int bP;
     private float weightKG;
     private float wieghtPd;
+
+   
+    
+ 
+
+   
 
     public int getRespRate() {
         return respRate;
@@ -56,4 +74,6 @@ public class VitalSign {
     public void setWieghtPd(int wieghtPd) {
         this.wieghtPd = wieghtPd;
     }
+
+   
 }
