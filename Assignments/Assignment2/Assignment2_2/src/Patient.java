@@ -17,7 +17,7 @@ import model.PediatricVitalSign;
  * @author shreyascr
  */
 public class Patient {
-
+private static int flag=0;
     private float age;
 private String name;
 
@@ -85,8 +85,12 @@ private String name;
     /*  Create a new record method*/
     public static void createRecord() {
         Date date;
+        int year = 0;
+        float month=0;
+        float days=0;
         Scanner input = new Scanner(System.in);
-        System.out.println("=============================");
+        if(flag==0){
+            System.out.println("=============================");
         System.out.println("Please enter the name:");
         System.out.println("=============================");
         String name = input.nextLine();
@@ -96,7 +100,7 @@ private String name;
         System.out.println("=============================");
 
         System.out.println("Please enter in years:");
-        int year = input.nextInt();
+         year = input.nextInt();
         input.nextLine();
         while (year > 140 || year < 0) {
             System.out.println("Please enter years below 140");
@@ -105,7 +109,7 @@ private String name;
         }
         System.out.println("=============================");
         System.out.println("Please enter in months:");
-        float month = input.nextInt();
+         month = input.nextInt();
         input.nextLine();
         while (month > 12 || month < 0) {
             System.out.println("Please enter month below 12");
@@ -114,19 +118,19 @@ private String name;
         }
         System.out.println("=============================");
         System.out.println("Please enter in days:");
-        float days = input.nextInt();
+         days = input.nextInt();
         input.nextLine();
         while (days > 31 || days < 0) {
             System.out.println("Please enter days below 31");
             days = input.nextInt();
             input.nextLine();
         }
-
-        float age = year + (month / 12) + (days / 365);
+         flag++;
+         float age = year + (month / 12) + (days / 365);
 
         ageRange(age);
         patient.setAge((int) Math.floor(age));
-        System.out.println("===================================");
+         System.out.println("===================================");
         System.out.println("Please enter the following details:");
         System.out.println("===================================");
         System.out.println("Respiratory Rate:");
@@ -156,6 +160,42 @@ private String name;
         vs.setWieghtPd(pd);
         vs.setTime(time);
         menuDisplay();
+        }else{
+            System.out.println("===================================");
+        System.out.println("Please enter the following details:");
+        System.out.println("===================================");
+        System.out.println("Respiratory Rate:");
+        int respRate = input.nextInt();
+        input.nextLine();
+        System.out.println("Heart Rate:");
+        int heartRate = input.nextInt();
+        input.nextLine();
+        System.out.println("Blood pressure:");
+        int bP = input.nextInt();
+        input.nextLine();
+        System.out.println("Weight(KG):");
+        int kg = input.nextInt();
+        input.nextLine();
+        System.out.println("Weight(Pounds):");
+        int pd = input.nextInt();
+        input.nextLine();
+        
+        Date time = new Date();
+//        patient.isPatientNormal(age,respRate,heartRate,bP,kg,pd);
+        PediatricVitalSign vs = vitals.addVitals();
+       
+        vs.setRespRate(respRate);
+        vs.setHeartRate(heartRate);
+        vs.setbP(bP);
+        vs.setWeightKG(kg);
+        vs.setWieghtPd(pd);
+        vs.setTime(time);
+        menuDisplay();
+        }
+        
+       
+        
+        
 
     }
 
