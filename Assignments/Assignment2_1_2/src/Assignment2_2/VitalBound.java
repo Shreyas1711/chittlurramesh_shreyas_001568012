@@ -132,6 +132,8 @@ public class VitalBound {
         bPLB=110;
         bPUB=120;
         wKgLB=51;
+        wKgUB=500;
         wPdLB= 110;
+        wPdUB=1000;
     }
 }

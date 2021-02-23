@@ -180,7 +180,7 @@ public class Patient {
         System.out.println("Name \t\tAge(years) \tRespiratory rate  \tHeart rate \tBlood pressure \tWeight(Kg) \tWeight(Pd)");
         for (int i = 0; i < vitals.getVitalHistory().size(); i++) {
 
-            System.out.println("" + vitals.getVitalHistory().get(i).getName() + "\t\t" + "   " + vitals.getVitalHistory().get(i).getAge() + "\t\t\t" + " " + vitals.getVitalHistory().get(i).getRespRate() + "\t\t" + "    " + vitals.getVitalHistory().get(i).getHeartRate() + "\t\t" + "     " + vitals.getVitalHistory().get(i).getbP() + "\t\t" + "    " + (int) vitals.getVitalHistory().get(i).getWeightKG() + "\t\t" + "   " + (int) vitals.getVitalHistory().get(i).getWieghtPd());
+            System.out.println("" + vitals.getVitalHistory().get(i).getName() + "\t\t" + "   " + vitals.getVitalHistory().get(i).getAge() + "\t\t" + "     " + vitals.getVitalHistory().get(i).getRespRate() + "\t\t" + "         " + vitals.getVitalHistory().get(i).getHeartRate() + "\t\t" + "   " + vitals.getVitalHistory().get(i).getbP() + "\t\t" + "  " + (int) vitals.getVitalHistory().get(i).getWeightKG() + "\t\t" + "      " + (int) vitals.getVitalHistory().get(i).getWieghtPd());
         }
         System.out.println("===========================================================================================================================");
 
@@ -221,7 +221,6 @@ public class Patient {
     /* Method to check vitals */
     public static boolean isThisVitalSignNormal(String vital, int respRate, int heartRate, int bP, float kg, float pd) {
         if (vital.equals("respiratory rate")) {
-            System.out.println(vitalBound.getRespRateLB());
             if (respRate >= vitalBound.getRespRateLB() && respRate < vitalBound.getRespRateUB()) {
                 System.out.println("Your Respiratory Rate is normal.");
                 return true;
@@ -231,7 +230,6 @@ public class Patient {
             }
         }
         if (vital.equals("heart rate")) {
-            System.out.println(vitalBound.getHeartRateLB());
             if (heartRate >= vitalBound.getHeartRateLB() && heartRate < vitalBound.getHeartRateUB()) {
                 System.out.println("Your Heart Rate is normal.");
                 return true;
@@ -241,7 +239,6 @@ public class Patient {
             }
         }
         if (vital.equals("blood pressure")) {
-            System.out.println(vitalBound.getbPLB());
             if (bP >= vitalBound.getbPLB() && bP < vitalBound.getbPUB()) {
                 System.out.println("Your Blood Pressure is normal.");
                 return true;
@@ -251,8 +248,7 @@ public class Patient {
             }
         }
         if (vital.equals("weight kg")) {
-            System.out.println(vitalBound.getwKgLB());
-            if (kg > vitalBound.getwKgLB()) {
+            if (kg > vitalBound.getwKgLB()&& kg<vitalBound.getwKgUB() ){
                 System.out.println("Your Weight in kg is normal.");
                 return true;
             } else {
@@ -261,8 +257,7 @@ public class Patient {
             }
         }
         if (vital.equals("weight pd")) {
-            System.out.println(vitalBound.getwPdLB());
-            if (pd > vitalBound.getwPdLB()) {
+            if (pd > vitalBound.getwPdLB() && pd<vitalBound.getwPdUB()) {
                 System.out.println("Your Weight in pd is normal.");
                 return true;
             } else {
