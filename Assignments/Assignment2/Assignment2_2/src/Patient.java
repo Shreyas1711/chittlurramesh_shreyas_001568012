@@ -60,10 +60,10 @@ private String name;
         Scanner input1 = new Scanner(System.in);
         int option = input1.nextInt();
         input1.nextLine();
-        while (option > 4 && option < 1) {
+        while (option > 4 || option < 1) {
             System.out.println("Please enter a valid option:");
-            option = input1.nextInt();
-            input1.nextLine();
+           
+            menuDisplay();
         }
         switch (option) {
             case 1:
