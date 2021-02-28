@@ -421,6 +421,7 @@ public class Assignment {
             System.out.println(count);
             
               System.out.println(abnormal);  
+              menuDisplay();
            }
           // String community = cc.getCommunity().get(0).getCommunityName();
            
