@@ -144,6 +144,11 @@ public class Assignment {
             ageRange(age);
             p.setAge(age);
             
+           
+            System.out.println("=================================");
+            System.out.println("Please enter your City):");
+            System.out.println("=================================");
+            String city = input.next();
             System.out.println("=================================");
             System.out.println("Please enter your Community Name:");
             System.out.println("=================================");
@@ -151,12 +156,6 @@ public class Assignment {
             String commName = input.next();
             
             community.setCommunityName(commName);
-            city1.setCommunity(community);
-            System.out.println("=================================");
-            System.out.println("Please enter your City):");
-            System.out.println("=================================");
-            String city = input.next();
-            
             city1.setCityName(city);
             if(!cityHash.containsKey(city)){
                 ArrayList<City> list = new ArrayList<>();
@@ -191,11 +190,9 @@ public class Assignment {
                     
                 
             }
+             
+            city1.setCommunity(community);
             System.out.println("=================================");
-            if(community.getHouseList()!=null)
-            {
-            System.out.println("Please enter your House Number: "+ community.getHouseList().size());
-            }
             System.out.println("Please enter your House Number: ");
             System.out.println("=================================");
             int houseNo = input.nextInt();
