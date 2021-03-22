@@ -519,6 +519,22 @@ public void getStudentTakenByProf(String courseID, StudentDirectory sd){
         ad1.setAd(all);
              
          System.out.println("A LL "+ al.careerSuccessMetric());
+                    
+         ArrayList<StudentProfile> asp = sd.getStudentlist();
+        for(StudentProfile spp : asp){
+            ArrayList<SeatAssignment> as11 = spp.getTranscript().getCourseLoad("Fall2020").getSeatassignments();
+            for(int i=0 ; i < as11.size(); i++){
+                as11.get(i).assignGradeToStudent("A-");
+            }
+        }
+        
+         ArrayList<StudentProfile> asp1 = sd1.getStudentlist();
+        for(StudentProfile spp1 : asp){
+            ArrayList<SeatAssignment> as111 = spp1.getTranscript().getCourseLoad("Fall2020").getSeatassignments();
+            for(int i=0 ; i < as111.size(); i++){
+                as111.get(i).assignGradeToStudent("B-");
+            }
+        }  
     }
      
      
@@ -552,7 +568,7 @@ public void getStudentTakenByProf(String courseID, StudentDirectory sd){
         for(FacultyProfile f : fp)
             System.out.println("Sorted form "+ f.getFacultyRatings());
 
-                
+   
         
     }
     
